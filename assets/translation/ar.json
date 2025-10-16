@@ -1,0 +1,108 @@
+{
+    "main":"الرئيسية",
+    "services":"الخدمات",
+    "about_us":"عن المنصة",
+    "contact":"اتصل بنا",
+    "my_account":"حسابي",
+    "mainfirst":"المنافيست",
+    "services_bahrain":"خدمات المنافيست البحري",
+    "manual_entry":"ادراج منافيست يدوي",
+    "issue":"اصدار اذن شحن لشحنة وارد(اعادة شحن)",
+
+
+
+
+    
+    "mainfist_number":"رقم المنافيست",
+    "mainfist_type":"نوع المنافيست",
+    "policy_data": "بيانات البوليصة",
+    "policy_number": "رقم البوليصة",
+    "import_number": "رقم استيراد البوليصة",
+    "policy_type": "نوع رسم البوليصة",
+    "custom_system": "النظام الجمركي",
+    "custom_system_placeholder": "اختر النظام الجمركي",
+    "policy_type_placeholder": "اختر نوع البوليصة",
+    "date_of_shipping": "تاريخ الشحن",
+    "port_of_shipping": "ميناء الشحن",
+    "country_of_shipping": "دولة ميناء الشحن",
+    "search":"بحث",
+    "mainfist_title":"اصدار اذن شحن لشحنة وارد اعادة شحن",
+   "mainfist_btn":"اصدار اذن شحن",
+
+    "port_of_shipping_placeholder": "اختر ميناء الشحن",
+    "port_of_arrival": "ميناء الوصول",
+    "port_of_arrival_placeholder": "اختر ميناء الوصول",
+    "port_of_destination": "ميناء الوجهة",
+    "port_of_transit": "ميناء الترانزيت",
+    "cancel":"الغاء",
+    "save":"حفظ",
+    "shipping_direction": "جهة الوجهة",
+    "shipping_direction_placeholder": "اختر جهة الوجهة",
+    "delivery_type": "نوع التسليم",
+    "delivery_type_placeholder": "اختر نوع التسليم",
+    "danger_indicator": "مؤشر شحن خطر",
+    "danger_indicator_placeholder": "اختر مؤشر شحن خطر",
+    "notes": "ملاحظات",
+    "notes_placeholder": "أدخل أي ملاحظات إضافية",
+    "goods_description": "وصف عام للبضائع",
+    "goods_description_placeholder": "أدخل وصف عام للبضائع",
+    "policy_collect_type":"نوع تجميع البوليصة",
+    "parties":"بيانات الاطراف",
+    "routes":"الطرق",
+
+
+    "agent": "الوكيل الملاحي",
+    "beneficiary_number":"رقم المستفيد",
+    "beneficiary_name":"اسم المستفيد",
+    "beneficiary_address":"عنوان المستفيد",
+    "dangerous_party":"اسم طرف الاخطار",
+    "dangerous_party_address":"عنوان طرف الاخطار",
+    "agent_trade":" تعامل وكيل الشحن",
+    "agent_trade_placeholder":"اسم وكيل الشحن",
+
+    "acid_data":"بيانات ACID",
+    "acid_data_number":"الرقم التعريفي ACID",
+    "acid_tax_number":"الرقم الضريبي للمستورد",
+    "acid_country":"دولة المصدر",
+    "acid_number":"رقم المصدر",
+
+    
+    "goods_data":"بيانات سطور البضائع",
+    "type":"الصنف",
+    "weight_of_the_shipment":"نوغ الشحنة",
+    "number_of_cargo":"عدد الطرود",
+    "unit_of_cargo":"وحدة الطرود",
+    "gross_weight":"الوزن القائم",
+    "net_weight":"الوزن الصافي",
+    "unit_of_weight":"وحدة الوزن",
+    "volume":"الحجم",
+    "unit_of_volume":"وحدة الحجم",
+    "cargo_number":"رقم الحاوية",
+    "good_description":"وصف عام للبضائع",
+
+
+    "basic_data":"البيانات الاساسية",
+    "permit_number":"رقم اذن الشحن",
+    "permit_date":"تاريخ اذن الشحن",
+    "permit_issue_date":"تاريخ اصدار اذن الشحن",
+    "transportation_method":"وسيلة النقل",
+    "country_of_destination":"دولة ميناء الوجهة",   
+    "wajh_port":"ميناء الوجهة" ,
+
+
+    "services_most_demand":"الخدمات الاكثر طلبا",
+    "acl":" ACL",
+    "customs_clearance":"الاقرار الجمركي",
+    "support_and_help":"الدعم والمساعدة",
+    "frequently_asked_questions":"الاسئلة الشائعة",
+    "more":" المزيد",
+    "privacy":"سياسة الخصوصية",
+
+    "update_mainfist":"استكمال تعديل  منافست",
+   
+    "back":"رجوع",
+    "recharge_request":"طلب اعادة شحن خارجية"
+
+   
+
+}
