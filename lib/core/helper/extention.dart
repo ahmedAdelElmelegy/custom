@@ -1,60 +1,46 @@
-import 'package:customs/core/widgets/adaptive_layout.dart';
 import 'package:customs/feature/about/presentation/screens/about_screen.dart';
 import 'package:customs/feature/contact_us/presentation/screens/contact_us_screen.dart';
+import 'package:customs/feature/detail/profile_screen.dart';
 import 'package:customs/feature/home/presentation/screens/home_desktop_body.dart';
-import 'package:customs/feature/home/presentation/screens/home_mobile_body.dart';
-import 'package:customs/feature/home/presentation/screens/home_tablet_body.dart';
 import 'package:customs/feature/main/presentation/screens/main_desktop_layout.dart';
-import 'package:customs/feature/main/presentation/screens/main_mobile_layout.dart';
-import 'package:customs/feature/main/presentation/screens/main_tablet_layout.dart';
 import 'package:customs/feature/services/presentation/screens/services.dart';
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 // final isLogin = false;
 
 final GoRouter router = GoRouter(
-  routes: <RouteBase>[
-    GoRoute(
-      path: '/',
-      builder: (BuildContext context, GoRouterState state) {
-        return AdaptiveLayout(
-          mobilelayout: (context) => MainMobileLayout(),
-          desktopLayout: (context) => MainDesktopLayout(),
-          tabletLayout: (context) => MainTabletLayout(),
-        );
+  routes: [
+    ShellRoute(
+      builder: (context, state, child) {
+        return MainDesktopLayout(child: child);
       },
       routes: [
         GoRoute(
-          path: 'home',
-          builder: (BuildContext context, GoRouterState state) {
-            return AdaptiveLayout(
-              mobilelayout: (context) => HomeMobileBody(),
-              desktopLayout: (context) => HomeDesktopBody(),
-              tabletLayout: (context) => HomeTabletBody(),
-            );
-          },
+          path: '/home',
+          builder: (context, state) => const HomeDesktopBody(),
         ),
         GoRoute(
-          path: 'services',
-          builder: (BuildContext context, GoRouterState state) {
-            return ServicesScreen();
-          },
+          path: '/services',
+          builder: (context, state) => const ServicesScreen(),
         ),
         GoRoute(
-          path: 'about',
-          builder: (BuildContext context, GoRouterState state) {
-            return AboutScreen();
-          },
+          path: '/about',
+          builder: (context, state) => const AboutScreen(),
+          routes: [
+            GoRoute(
+              path: 'profile',
+              builder: (context, state) => const ProfileScreen(),
+            ),
+          ],
         ),
         GoRoute(
-          path: 'contact',
-          builder: (BuildContext context, GoRouterState state) {
-            return ContactUsScreen();
-          },
+          path: '/contact',
+          builder: (context, state) => const ContactUsScreen(),
         ),
       ],
     ),
   ],
+  initialLocation: '/home',
 );
+
 // state.pathParameters["name"]!

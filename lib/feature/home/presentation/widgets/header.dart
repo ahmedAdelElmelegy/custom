@@ -1,26 +1,41 @@
 import 'package:customs/core/helper/constants.dart';
+import 'package:customs/core/services/save_route_index.dart';
 import 'package:customs/core/theme/colors.dart';
 import 'package:customs/core/theme/style.dart';
+import 'package:customs/core/utils/app_constants.dart';
 import 'package:customs/feature/home/presentation/widgets/nav_bar_item.dart';
 import 'package:customs/feature/home/presentation/widgets/notification_icon.dart';
 import 'package:customs/feature/home/presentation/widgets/profile_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:easy_localization/easy_localization.dart';
+import 'package:go_router/go_router.dart';
 
 class Header extends StatefulWidget {
   final Function(int)? onIndexChange;
-  final void Function()? onTap;
 
-  const Header({super.key, this.onIndexChange, this.onTap});
+  const Header({super.key, this.onIndexChange});
 
   @override
   State<Header> createState() => _HeaderState();
 }
 
 class _HeaderState extends State<Header> {
-  static List<String> name = ['main', 'services', 'about_us', 'contact'];
   int currentIndex = 0;
+
+  @override
+  void initState() {
+    final index = getIndex(AppConstants.routeIndexKey);
+    if (index != null) {
+      setState(() {
+        currentIndex = index;
+      });
+    }
+    super.initState();
+  }
+
+  static List<String> name = ['main', 'services', 'about_us', 'contact'];
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -80,7 +95,6 @@ class _HeaderState extends State<Header> {
               ),
             ],
           ),
-          InkWell(onTap: widget.onTap, child: Icon(Icons.menu)),
         ],
       ),
     );

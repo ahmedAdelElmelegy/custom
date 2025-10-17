@@ -1,5 +1,5 @@
 import 'package:customs/core/error/validator.dart';
-import 'package:customs/core/services/save_search_data.dart';
+import 'package:customs/core/services/save_route_index.dart';
 import 'package:customs/core/widgets/custom_btn.dart';
 import 'package:customs/core/widgets/custom_input_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -17,11 +17,6 @@ class _BillOfLadingFormState extends State<BillOfLadingForm> {
   String? dro1;
   String? dro2;
   @override
-  void initState() {
-    debugPrint(getToken());
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -36,10 +31,9 @@ class _BillOfLadingFormState extends State<BillOfLadingForm> {
                   items: ['1', '2', '3'],
                   label: 'mainfist_number'.tr(),
                   type: InputType.dropdown,
-                  selectedValue: getToken(),
+                  selectedValue: dro1,
                   onChanged: (value) {
                     setState(() => dro1 = value);
-                    saveToken(value ?? '');
                   },
                   // onLoadMore: fetchMoreCountries, // Lazy Loading
                   searchable: true,

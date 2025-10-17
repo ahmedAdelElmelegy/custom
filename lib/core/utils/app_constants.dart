@@ -5,4 +5,6 @@ abstract class AppConstants {
     "services_bahrain",
     "manual_entry",
   ];
+  //
+  static const String routeIndexKey = "routeIndex";
 }

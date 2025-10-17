@@ -6,18 +6,17 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue,
-            foregroundColor: Colors.white,
-          ),
-          onPressed: () {
-            context.go('/services/profile/setting');
-          },
-          child: Text('Profile'),
+    return Center(
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
         ),
+        onPressed: () {
+          context.pop();
+          // context.go('/services/profile/setting');
+        },
+        child: Text('Profile'),
       ),
     );
   }
