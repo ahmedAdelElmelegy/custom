@@ -2,14 +2,12 @@ import 'package:customs/core/helper/constants.dart';
 import 'package:customs/core/services/save_route_index.dart';
 import 'package:customs/core/theme/colors.dart';
 import 'package:customs/core/theme/style.dart';
-import 'package:customs/core/utils/app_constants.dart';
 import 'package:customs/feature/home/presentation/widgets/nav_bar_item.dart';
 import 'package:customs/feature/home/presentation/widgets/notification_icon.dart';
 import 'package:customs/feature/home/presentation/widgets/profile_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:easy_localization/easy_localization.dart';
-import 'package:go_router/go_router.dart';
 
 class Header extends StatefulWidget {
   final Function(int)? onIndexChange;
@@ -25,7 +23,7 @@ class _HeaderState extends State<Header> {
 
   @override
   void initState() {
-    final index = getIndex(AppConstants.routeIndexKey);
+    final index = getRouteIndex();
     if (index != null) {
       setState(() {
         currentIndex = index;

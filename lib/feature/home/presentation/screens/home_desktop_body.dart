@@ -18,46 +18,54 @@ class HomeDesktopBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     debugPrint(size.width.toString());
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 120),
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          const SizedBox(height: 30),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: ColorManager.primary,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.05),
-                  blurRadius: 8,
-                  offset: const Offset(0, 3),
-                ),
-              ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 120),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            const SizedBox(height: 30),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: ColorManager.primary,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.05),
+                    blurRadius: 8,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+              ),
+              child: HomeRouteList(),
             ),
-            child: HomeRouteList(),
-          ),
-          const SizedBox(height: 30),
+            const SizedBox(height: 30),
 
-          HomeActionBtn(),
-          const SizedBox(height: 30),
-          HomeCardSection(title: 'policy_data'.tr(), child: BillOfLadingForm()),
-          const SizedBox(height: 30),
+            HomeActionBtn(),
+            const SizedBox(height: 30),
+            HomeCardSection(
+              title: 'policy_data'.tr(),
+              child: BillOfLadingForm(),
+            ),
+            const SizedBox(height: 30),
 
-          HomeCardSection(title: 'policy_data'.tr(), child: BeneficiaryForm()),
-          const SizedBox(height: 30),
-          HomeCardSection(title: 'parties'.tr(), child: PartiesForm()),
-          const SizedBox(height: 30),
-          HomeCardSection(title: 'acid_data'.tr(), child: AcidDataForm()),
-          const SizedBox(height: 30),
+            HomeCardSection(
+              title: 'policy_data'.tr(),
+              child: BeneficiaryForm(),
+            ),
+            const SizedBox(height: 30),
+            HomeCardSection(title: 'parties'.tr(), child: PartiesForm()),
+            const SizedBox(height: 30),
+            HomeCardSection(title: 'acid_data'.tr(), child: AcidDataForm()),
+            const SizedBox(height: 30),
 
-          HomeCardSection(title: 'goods_data'.tr(), child: GoodsDataForm()),
-          const SizedBox(height: 30),
-          HomeCardSection(title: 'basic_data'.tr(), child: BasicDataForm()),
-          const SizedBox(height: 30),
-        ],
+            HomeCardSection(title: 'goods_data'.tr(), child: GoodsDataForm()),
+            const SizedBox(height: 30),
+            HomeCardSection(title: 'basic_data'.tr(), child: BasicDataForm()),
+            const SizedBox(height: 30),
+          ],
+        ),
       ),
     );
   }

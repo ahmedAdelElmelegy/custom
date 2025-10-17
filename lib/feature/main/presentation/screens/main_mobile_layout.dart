@@ -1,26 +1,19 @@
+import 'package:customs/core/services/save_route_index.dart';
 import 'package:customs/core/theme/colors.dart';
-import 'package:customs/feature/about/presentation/screens/about_screen.dart';
-import 'package:customs/feature/contact_us/presentation/screens/contact_us_screen.dart';
-import 'package:customs/feature/home/presentation/screens/home_mobile_body.dart';
 import 'package:customs/feature/home/presentation/widgets/custom_drawer.dart';
 import 'package:customs/feature/home/presentation/widgets/fotter.dart';
-import 'package:customs/feature/services/presentation/screens/services.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class MainMobileLayout extends StatefulWidget {
-  const MainMobileLayout({super.key});
+  final Widget child;
+  const MainMobileLayout({super.key, required this.child});
 
   @override
   State<MainMobileLayout> createState() => _MainMobileLayoutState();
 }
 
 class _MainMobileLayoutState extends State<MainMobileLayout> {
-  List<Widget> screens = [
-    HomeMobileBody(),
-    ServicesScreen(),
-    AboutScreen(),
-    ContactUsScreen(),
-  ];
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -31,13 +24,27 @@ class _MainMobileLayoutState extends State<MainMobileLayout> {
           children: [
             CustomDrawer(
               onIndexChange: (index) {
-                setState(() {
-                  currentIndex = index;
-                });
+                switch (index) {
+                  case 0:
+                    context.go('/home');
+                    break;
+                  case 1:
+                    context.go('/services');
+                    break;
+                  case 2:
+                    context.go('/about');
+                    break;
+                  case 3:
+                    context.go('/contact');
+                    break;
+                }
+                saveRouteIndex(index);
               },
             ),
-
-            screens[currentIndex],
+            AnimatedSwitcher(
+              duration: const Duration(milliseconds: 300),
+              child: widget.child,
+            ),
             const SizedBox(height: 30),
             Footer(),
           ],

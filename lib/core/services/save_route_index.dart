@@ -1,11 +1,11 @@
+import 'package:customs/core/utils/app_constants.dart';
 import 'package:universal_html/html.dart' as html;
 
-void saveIndex(int index, String key) {
-  html.window.localStorage[key] = index.toString();
+void saveRouteIndex(int index) {
+  html.window.localStorage[AppConstants.routeIndexKey] = index.toString();
 }
 
-//  get
-int? getIndex(String key) {
-  final index = html.window.localStorage[key];
-  return int.parse(index ?? '0');
+int? getRouteIndex() {
+  final value = html.window.localStorage[AppConstants.routeIndexKey];
+  return value != null ? int.tryParse(value) : null;
 }

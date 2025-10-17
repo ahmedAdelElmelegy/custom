@@ -1,4 +1,5 @@
 import 'package:customs/core/helper/constants.dart';
+import 'package:customs/core/services/save_route_index.dart';
 import 'package:customs/core/theme/colors.dart';
 import 'package:customs/core/theme/style.dart';
 import 'package:customs/feature/home/presentation/widgets/nav_bar_item.dart';
@@ -14,9 +15,21 @@ class CustomDrawer extends StatefulWidget {
 }
 
 class _CustomDrawerState extends State<CustomDrawer> {
+  int currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    final index = getRouteIndex();
+    if (index != null) {
+      setState(() {
+        currentIndex = index;
+      });
+    }
+  }
+
   List<String> name = ['main', 'services', 'about_us', 'contact'];
   bool isDrawerOpen = false;
-  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Container(

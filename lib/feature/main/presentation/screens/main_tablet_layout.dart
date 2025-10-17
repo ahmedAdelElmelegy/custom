@@ -1,26 +1,26 @@
+import 'package:customs/core/services/save_route_index.dart';
 import 'package:customs/core/theme/colors.dart';
-import 'package:customs/feature/about/presentation/screens/about_screen.dart';
-import 'package:customs/feature/contact_us/presentation/screens/contact_us_screen.dart';
-import 'package:customs/feature/home/presentation/screens/home_tablet_body.dart';
+
 import 'package:customs/feature/home/presentation/widgets/fotter.dart';
 import 'package:customs/feature/home/presentation/widgets/header.dart';
-import 'package:customs/feature/services/presentation/screens/services.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class MainTabletLayout extends StatefulWidget {
-  const MainTabletLayout({super.key});
+  final Widget child;
+  const MainTabletLayout({super.key, required this.child});
 
   @override
   State<MainTabletLayout> createState() => _MainTabletLayoutState();
 }
 
 class _MainTabletLayoutState extends State<MainTabletLayout> {
-  List<Widget> screens = [
-    HomeTabletBody(),
-    ServicesScreen(),
-    AboutScreen(),
-    ContactUsScreen(),
-  ];
+  // List<Widget> screens = [
+  //   HomeTabletBody(),
+  //   ServicesScreen(),
+  //   AboutScreen(),
+  //   ContactUsScreen(),
+  // ];
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -31,14 +31,29 @@ class _MainTabletLayoutState extends State<MainTabletLayout> {
           children: [
             Header(
               onIndexChange: (index) {
-                setState(() {
-                  currentIndex = index;
-                });
+                switch (index) {
+                  case 0:
+                    context.go('/home');
+                    break;
+                  case 1:
+                    context.go('/services');
+                    break;
+                  case 2:
+                    context.go('/about');
+                    break;
+                  case 3:
+                    context.go('/contact');
+                    break;
+                }
+                saveRouteIndex(index);
               },
             ),
 
             // screens
-            screens[currentIndex],
+            AnimatedSwitcher(
+              duration: const Duration(milliseconds: 300),
+              child: widget.child,
+            ),
             const SizedBox(height: 30),
             Footer(),
           ],

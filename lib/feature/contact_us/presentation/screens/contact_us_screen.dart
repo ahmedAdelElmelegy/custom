@@ -5,9 +5,6 @@ class ContactUsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 700,
-      child: const Center(child: Text('contact_us')),
-    );
+    return SizedBox(child: const Center(child: Text('contact_us')));
   }
 }
