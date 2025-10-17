@@ -17,8 +17,7 @@ class MainDesktopLayout extends StatefulWidget {
   State<MainDesktopLayout> createState() => _MainDesktopLayoutState();
 }
 
-class _MainDesktopLayoutState extends State<MainDesktopLayout>
-    with TickerProviderStateMixin {
+class _MainDesktopLayoutState extends State<MainDesktopLayout> {
   final List<Widget> screens = const [
     HomeDesktopBody(),
     ServicesScreen(),
