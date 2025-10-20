@@ -12,6 +12,7 @@ import 'package:customs/feature/recharge_mainfist/presentation/widgets/mainfist_
 import 'package:customs/feature/recharge_mainfist/presentation/widgets/order_data_form.dart';
 import 'package:customs/feature/recharge_mainfist/presentation/widgets/policy_to_be_modified_form.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:go_router/go_router.dart';
 
 class RechargeMainfistTabletScreen extends StatelessWidget {
   const RechargeMainfistTabletScreen({super.key});
@@ -80,7 +81,9 @@ class RechargeMainfistTabletScreen extends StatelessWidget {
                     const SizedBox(width: 24),
                     CustomBtn(
                       color: ColorManager.primary,
-                      onPressed: () {},
+                      onPressed: () {
+                        context.go('/home/recharge_mainfist');
+                      },
                       text: 'submit_to_customs'.tr(),
                     ),
                   ],

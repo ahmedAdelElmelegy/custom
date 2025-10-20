@@ -14,6 +14,7 @@ import 'package:customs/core/widgets/home_card_section.dart';
 import 'package:customs/feature/recharge_mainfist/presentation/widgets/back_arrow_text.dart';
 import 'package:customs/feature/recharge_mainfist/presentation/widgets/mainfist_data_continer.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:go_router/go_router.dart';
 
 class RechargeMainfistMobileScreen extends StatelessWidget {
   const RechargeMainfistMobileScreen({super.key});
@@ -105,7 +106,9 @@ class RechargeMainfistMobileScreen extends StatelessWidget {
                   width: double.infinity,
 
                   text: 'submit_to_customs'.tr(),
-                  onPressed: () {},
+                  onPressed: () {
+                    context.go('/home/recharge_mainfist');
+                  },
                 ),
                 const SizedBox(height: 24),
                 TextButton(
