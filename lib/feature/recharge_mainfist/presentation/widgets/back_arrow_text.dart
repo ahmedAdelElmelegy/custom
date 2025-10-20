@@ -4,6 +4,7 @@ import 'package:customs/core/theme/style.dart';
 import 'package:customs/core/widgets/svg_icon.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BackArrowText extends StatelessWidget {
   const BackArrowText({super.key});
@@ -13,11 +14,16 @@ class BackArrowText extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        SvgIcon(
-          path: AppIcons.arrowRight,
-          color: ColorManager.white,
-          width: 28,
-          height: 28,
+        InkWell(
+          onTap: () {
+            context.pop();
+          },
+          child: SvgIcon(
+            path: AppIcons.arrowRight,
+            color: ColorManager.white,
+            width: 28,
+            height: 28,
+          ),
         ),
         const SizedBox(width: 10),
         Text(

@@ -10,4 +10,8 @@ class HomeCubit extends Cubit<HomeState> {
     5,
     (_) => GlobalKey<FormState>(),
   );
+  final List<GlobalKey<FormState>> rechargeFormKeys = List.generate(
+    6,
+    (_) => GlobalKey<FormState>(),
+  );
 }

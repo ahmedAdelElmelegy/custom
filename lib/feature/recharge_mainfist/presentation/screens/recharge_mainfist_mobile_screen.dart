@@ -1,4 +1,5 @@
 import 'package:customs/core/theme/style.dart';
+import 'package:customs/feature/home/presentation/manager/cubit/home_cubit.dart';
 import 'package:customs/feature/home/presentation/widgets/acid_data_mobile_form.dart';
 import 'package:customs/feature/home/presentation/widgets/goods_data_mobile_form.dart';
 import 'package:customs/feature/home/presentation/widgets/parties_mobile_form.dart';
@@ -14,13 +15,14 @@ import 'package:customs/core/widgets/home_card_section.dart';
 import 'package:customs/feature/recharge_mainfist/presentation/widgets/back_arrow_text.dart';
 import 'package:customs/feature/recharge_mainfist/presentation/widgets/mainfist_data_continer.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RechargeMainfistMobileScreen extends StatelessWidget {
   const RechargeMainfistMobileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final rechargeFormKeys = context.read<HomeCubit>().rechargeFormKeys;
     final size = MediaQuery.of(context).size;
     debugPrint(size.width.toString());
     return SingleChildScrollView(
@@ -73,40 +75,63 @@ class RechargeMainfistMobileScreen extends StatelessWidget {
               children: [
                 HomeCardSection(
                   title: 'policy_to_be_modified'.tr(),
-                  child: PolicyToBeModifiedMobileForm(),
+                  child: Form(
+                    key: rechargeFormKeys[0],
+                    child: PolicyToBeModifiedMobileForm(),
+                  ),
                 ),
                 const SizedBox(height: 24),
                 HomeCardSection(
                   title: 'parties'.tr(),
-                  child: PartiesMobileForm(),
+                  child: Form(
+                    key: rechargeFormKeys[1],
+                    child: PartiesMobileForm(),
+                  ),
                 ),
                 const SizedBox(height: 24),
                 HomeCardSection(
                   title: 'acid_data'.tr(),
-                  child: AcidDataMobileForm(),
+                  child: Form(
+                    key: rechargeFormKeys[2],
+                    child: AcidDataMobileForm(),
+                  ),
                 ),
                 const SizedBox(height: 24),
                 HomeCardSection(
                   title: 'goods_data'.tr(),
-                  child: GoodsDataMobileForm(),
+                  child: Form(
+                    key: rechargeFormKeys[3],
+                    child: GoodsDataMobileForm(),
+                  ),
                 ),
                 const SizedBox(height: 24),
                 HomeCardSection(
                   title: 'order_data'.tr(),
-                  child: OrderDataMobileForm(),
+                  child: Form(
+                    key: rechargeFormKeys[4],
+                    child: OrderDataMobileForm(),
+                  ),
                 ),
                 const SizedBox(height: 24),
                 HomeCardSection(
                   title: 'attachments_title'.tr(),
-                  child: AttachmentsDataMobileForm(),
+                  child: Form(
+                    key: rechargeFormKeys[5],
+                    child: AttachmentsDataMobileForm(),
+                  ),
                 ),
                 const SizedBox(height: 24),
                 CustomBtn(
                   color: ColorManager.primary,
                   width: double.infinity,
-
                   text: 'submit_to_customs'.tr(),
-                  onPressed: () {},
+                  onPressed: () {
+                    for (var element in rechargeFormKeys) {
+                      if (element.currentState!.validate()) {
+                        debugPrint('Validation passed');
+                      }
+                    }
+                  },
                 ),
                 const SizedBox(height: 24),
                 TextButton(

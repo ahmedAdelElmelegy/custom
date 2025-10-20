@@ -21,6 +21,7 @@ class HomeMobileBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final formKeys = context.read<HomeCubit>().formKeys;
     debugPrint(size.width.toString());
     return SingleChildScrollView(
       child: Column(
@@ -51,28 +52,28 @@ class HomeMobileBody extends StatelessWidget {
                 const SizedBox(height: 30),
                 HomeCardSection(
                   title: 'policy_data'.tr(),
-                  child: BeneficiaryMobileForm(),
+                  child: Form(key: formKeys[0], child: BeneficiaryMobileForm()),
                 ),
                 const SizedBox(height: 30),
                 HomeCardSection(
                   title: 'parties'.tr(),
-                  child: PartiesMobileForm(),
+                  child: Form(key: formKeys[1], child: PartiesMobileForm()),
                 ),
                 const SizedBox(height: 30),
                 HomeCardSection(
                   title: 'acid_data'.tr(),
-                  child: AcidDataMobileForm(),
+                  child: Form(key: formKeys[2], child: AcidDataMobileForm()),
                 ),
                 const SizedBox(height: 30),
 
                 HomeCardSection(
                   title: 'goods_data'.tr(),
-                  child: GoodsDataMobileForm(),
+                  child: Form(key: formKeys[3], child: GoodsDataMobileForm()),
                 ),
                 const SizedBox(height: 30),
                 HomeCardSection(
                   title: 'basic_data'.tr(),
-                  child: BasicDataMobileForm(),
+                  child: Form(key: formKeys[4], child: BasicDataMobileForm()),
                 ),
                 const SizedBox(height: 30),
                 CustomBtn(

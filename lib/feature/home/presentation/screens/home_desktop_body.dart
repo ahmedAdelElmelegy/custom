@@ -1,5 +1,6 @@
 import 'package:customs/core/theme/colors.dart';
 import 'package:customs/core/widgets/home_card_section.dart';
+import 'package:customs/feature/home/presentation/manager/cubit/home_cubit.dart';
 import 'package:customs/feature/home/presentation/widgets/acdl_data_form.dart';
 import 'package:customs/feature/home/presentation/widgets/basic_data_form.dart';
 import 'package:customs/feature/home/presentation/widgets/beneficiary_form.dart';
@@ -10,12 +11,14 @@ import 'package:customs/feature/home/presentation/widgets/home_route_list.dart';
 import 'package:customs/feature/home/presentation/widgets/parties_form.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeDesktopBody extends StatelessWidget {
   const HomeDesktopBody({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final homeCubit = context.read<HomeCubit>();
     final size = MediaQuery.of(context).size;
     debugPrint(size.width.toString());
     return SingleChildScrollView(
@@ -52,17 +55,29 @@ class HomeDesktopBody extends StatelessWidget {
 
             HomeCardSection(
               title: 'policy_data'.tr(),
-              child: BeneficiaryForm(),
+              child: Form(key: homeCubit.formKeys[0], child: BeneficiaryForm()),
             ),
             const SizedBox(height: 30),
-            HomeCardSection(title: 'parties'.tr(), child: PartiesForm()),
+            HomeCardSection(
+              title: 'parties'.tr(),
+              child: Form(key: homeCubit.formKeys[1], child: PartiesForm()),
+            ),
             const SizedBox(height: 30),
-            HomeCardSection(title: 'acid_data'.tr(), child: AcidDataForm()),
+            HomeCardSection(
+              title: 'acid_data'.tr(),
+              child: Form(key: homeCubit.formKeys[2], child: AcidDataForm()),
+            ),
             const SizedBox(height: 30),
 
-            HomeCardSection(title: 'goods_data'.tr(), child: GoodsDataForm()),
+            HomeCardSection(
+              title: 'goods_data'.tr(),
+              child: Form(key: homeCubit.formKeys[3], child: GoodsDataForm()),
+            ),
             const SizedBox(height: 30),
-            HomeCardSection(title: 'basic_data'.tr(), child: BasicDataForm()),
+            HomeCardSection(
+              title: 'basic_data'.tr(),
+              child: Form(key: homeCubit.formKeys[4], child: BasicDataForm()),
+            ),
             const SizedBox(height: 30),
           ],
         ),
