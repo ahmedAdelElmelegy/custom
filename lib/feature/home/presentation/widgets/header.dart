@@ -1,5 +1,4 @@
 import 'package:customs/core/helper/constants.dart';
-import 'package:customs/core/services/save_route_index.dart';
 import 'package:customs/core/theme/colors.dart';
 import 'package:customs/core/theme/style.dart';
 import 'package:customs/feature/home/presentation/widgets/nav_bar_item.dart';
@@ -8,11 +7,13 @@ import 'package:customs/feature/home/presentation/widgets/profile_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:easy_localization/easy_localization.dart';
+import 'package:go_router/go_router.dart';
 
 class Header extends StatefulWidget {
   final Function(int)? onIndexChange;
+  final bool isTablet;
 
-  const Header({super.key, this.onIndexChange});
+  const Header({super.key, this.onIndexChange, this.isTablet = false});
 
   @override
   State<Header> createState() => _HeaderState();
@@ -23,13 +24,32 @@ class _HeaderState extends State<Header> {
 
   @override
   void initState() {
-    final index = getRouteIndex();
-    if (index != null) {
-      setState(() {
-        currentIndex = index;
-      });
-    }
     super.initState();
+
+    final uri = GoRouter.of(context).state.uri;
+    final segments = uri.pathSegments;
+
+    if (segments.isEmpty) {
+      currentIndex = 0;
+      return;
+    }
+
+    switch (segments.first) {
+      case 'home':
+        currentIndex = 0;
+        break;
+      case 'services':
+        currentIndex = 1;
+        break;
+      case 'about':
+        currentIndex = 2;
+        break;
+      case 'contact':
+        currentIndex = 3;
+        break;
+      default:
+        currentIndex = 0;
+    }
   }
 
   static List<String> name = ['main', 'services', 'about_us', 'contact'];
@@ -37,7 +57,10 @@ class _HeaderState extends State<Header> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 120, vertical: 16),
+      padding: EdgeInsets.symmetric(
+        horizontal: widget.isTablet ? 24 : 120,
+        vertical: 16,
+      ),
       decoration: BoxDecoration(
         color: ColorManager.white,
         boxShadow: [
@@ -53,7 +76,7 @@ class _HeaderState extends State<Header> {
         children: [
           Image.asset(AppImages.logo, width: 55, height: 55),
 
-          const SizedBox(width: 80),
+          SizedBox(width: widget.isTablet ? 50 : 80),
 
           Expanded(
             child: Wrap(
@@ -75,6 +98,8 @@ class _HeaderState extends State<Header> {
               ),
             ),
           ),
+
+          const SizedBox(width: 24),
 
           Row(
             children: [

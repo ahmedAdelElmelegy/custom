@@ -1,10 +1,10 @@
 import 'package:customs/core/helper/constants.dart';
-import 'package:customs/core/services/save_route_index.dart';
 import 'package:customs/core/theme/colors.dart';
 import 'package:customs/core/theme/style.dart';
 import 'package:customs/feature/home/presentation/widgets/nav_bar_item.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomDrawer extends StatefulWidget {
   final Function(int)? onIndexChange;
@@ -20,11 +20,29 @@ class _CustomDrawerState extends State<CustomDrawer> {
   @override
   void initState() {
     super.initState();
-    final index = getRouteIndex();
-    if (index != null) {
-      setState(() {
-        currentIndex = index;
-      });
+    final uri = GoRouter.of(context).state.uri;
+    final segments = uri.pathSegments;
+
+    if (segments.isEmpty) {
+      currentIndex = 0;
+      return;
+    }
+
+    switch (segments.first) {
+      case 'home':
+        currentIndex = 0;
+        break;
+      case 'services':
+        currentIndex = 1;
+        break;
+      case 'about':
+        currentIndex = 2;
+        break;
+      case 'contact':
+        currentIndex = 3;
+        break;
+      default:
+        currentIndex = 0;
     }
   }
 

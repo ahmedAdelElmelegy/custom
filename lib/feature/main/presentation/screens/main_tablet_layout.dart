@@ -30,6 +30,7 @@ class _MainTabletLayoutState extends State<MainTabletLayout> {
         child: Column(
           children: [
             Header(
+              isTablet: true,
               onIndexChange: (index) {
                 switch (index) {
                   case 0:
