@@ -38,10 +38,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => HomeCubit()),
-        BlocProvider(create: (context) => getIt<LoginCubit>()),
-      ],
+      providers: [BlocProvider(create: (context) => HomeCubit())],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         routerConfig: router,
