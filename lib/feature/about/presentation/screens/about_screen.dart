@@ -11,7 +11,7 @@ class AboutScreen extends StatelessWidget {
       child: Center(
         child: ElevatedButton(
           onPressed: () {
-            context.go('/about/profile');
+            context.go('/about/uploadFile');
           },
           child: Text('about_us'),
         ),

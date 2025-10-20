@@ -1,13 +1,17 @@
 import 'package:customs/core/di/injection.dart';
 import 'package:customs/core/helper/extention.dart';
 import 'package:customs/feature/home/presentation/manager/cubit/home_cubit.dart';
+import 'package:customs/firebase_options.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   // await dotenv.load(fileName: ".env");
 
   // قراءة

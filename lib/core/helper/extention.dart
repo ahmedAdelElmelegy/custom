@@ -1,7 +1,6 @@
 import 'package:customs/core/widgets/adaptive_layout.dart';
 import 'package:customs/feature/about/presentation/screens/about_screen.dart';
 import 'package:customs/feature/contact_us/presentation/screens/contact_us_screen.dart';
-import 'package:customs/feature/detail/profile_screen.dart';
 import 'package:customs/feature/home/presentation/screens/home_desktop_body.dart';
 import 'package:customs/feature/home/presentation/screens/home_mobile_body.dart';
 import 'package:customs/feature/home/presentation/screens/home_tablet_body.dart';
@@ -12,6 +11,7 @@ import 'package:customs/feature/recharge_mainfist/presentation/screens/recharge_
 import 'package:customs/feature/recharge_mainfist/presentation/screens/recharge_mainfist_mobile_screen.dart';
 import 'package:customs/feature/recharge_mainfist/presentation/screens/recharge_mainfist_tablet_screen.dart';
 import 'package:customs/feature/services/presentation/screens/services_screen.dart';
+import 'package:customs/feature/upload_file/presentation/screens/upload_file_screen.dart';
 import 'package:go_router/go_router.dart';
 
 // final isLogin = false;
@@ -54,8 +54,8 @@ final GoRouter router = GoRouter(
           builder: (context, state) => const AboutScreen(),
           routes: [
             GoRoute(
-              path: 'profile',
-              builder: (context, state) => const ProfileScreen(),
+              path: 'uploadFile',
+              builder: (context, state) => const UploadFileScreen(),
             ),
           ],
         ),
@@ -66,7 +66,7 @@ final GoRouter router = GoRouter(
       ],
     ),
   ],
-  initialLocation: '/home',
+  initialLocation: '/about/uploadFile',
 );
 
 // state.pathParameters["name"]!
