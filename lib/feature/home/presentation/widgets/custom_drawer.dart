@@ -16,34 +16,46 @@ class CustomDrawer extends StatefulWidget {
 
 class _CustomDrawerState extends State<CustomDrawer> {
   int currentIndex = 0;
+  late GoRouter _router;
 
   @override
   void initState() {
     super.initState();
-    final uri = GoRouter.of(context).state.uri;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _router = GoRouter.of(context);
+      _router.routerDelegate.addListener(_onRouteChanged);
+      _onRouteChanged();
+      // change in the first time
+    });
+  }
+
+  void _onRouteChanged() {
+    final uri = _router.state.uri;
     final segments = uri.pathSegments;
 
-    if (segments.isEmpty) {
-      currentIndex = 0;
-      return;
-    }
+    if (segments.isEmpty) return;
 
-    switch (segments.first) {
-      case 'home':
-        currentIndex = 0;
-        break;
-      case 'services':
-        currentIndex = 1;
-        break;
-      case 'about':
-        currentIndex = 2;
-        break;
-      case 'contact':
-        currentIndex = 3;
-        break;
-      default:
-        currentIndex = 0;
-    }
+    final first = segments.first;
+    debugPrint(first);
+
+    setState(() {
+      switch (first) {
+        case 'home':
+          currentIndex = 0;
+          break;
+        case 'services':
+          currentIndex = 1;
+          break;
+        case 'about':
+          currentIndex = 2;
+          break;
+        case 'contact':
+          currentIndex = 3;
+          break;
+        default:
+          currentIndex = 0;
+      }
+    });
   }
 
   List<String> name = ['main', 'services', 'about_us', 'contact'];
