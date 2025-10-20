@@ -61,7 +61,7 @@ class RechargeMainfistMobileScreen extends StatelessWidget {
               Positioned(top: 60, left: 16, right: 16, child: BackArrowText()),
 
               Positioned(
-                bottom: -80,
+                bottom: -120,
                 left: 16,
                 right: 16,
                 child: MainfistDataContainer(),
