@@ -1,6 +1,5 @@
 import 'package:customs/core/di/injection.dart';
 import 'package:customs/core/helper/extention.dart';
-import 'package:customs/feature/contact_us/presentation/cubit/login_cubit.dart';
 import 'package:customs/feature/home/presentation/manager/cubit/home_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +9,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  await dotenv.load(fileName: ".env");
+  // await dotenv.load(fileName: ".env");
 
   // قراءة
 
