@@ -81,9 +81,7 @@ class RechargeMainfistTabletScreen extends StatelessWidget {
                     const SizedBox(width: 24),
                     CustomBtn(
                       color: ColorManager.primary,
-                      onPressed: () {
-                        context.go('/home/recharge_mainfist');
-                      },
+                      onPressed: () {},
                       text: 'submit_to_customs'.tr(),
                     ),
                   ],

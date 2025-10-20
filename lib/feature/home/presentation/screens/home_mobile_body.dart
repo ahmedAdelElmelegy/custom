@@ -13,6 +13,7 @@ import 'package:customs/feature/home/presentation/widgets/parties_mobile_form.da
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeMobileBody extends StatelessWidget {
   const HomeMobileBody({super.key});
@@ -102,7 +103,12 @@ class HomeMobileBody extends StatelessWidget {
                   label: Text('save'.tr()),
                 ),
                 SizedBox(height: 16),
-                TextButton(onPressed: () {}, child: Text('cancel'.tr())),
+                TextButton(
+                  onPressed: () {
+                    context.go('/home/recharge_mainfist');
+                  },
+                  child: Text('cancel'.tr()),
+                ),
               ],
             ),
           ),

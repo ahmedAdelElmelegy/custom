@@ -106,9 +106,7 @@ class RechargeMainfistMobileScreen extends StatelessWidget {
                   width: double.infinity,
 
                   text: 'submit_to_customs'.tr(),
-                  onPressed: () {
-                    context.go('/home/recharge_mainfist');
-                  },
+                  onPressed: () {},
                 ),
                 const SizedBox(height: 24),
                 TextButton(
