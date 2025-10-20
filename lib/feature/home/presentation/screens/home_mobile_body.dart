@@ -79,7 +79,9 @@ class HomeMobileBody extends StatelessWidget {
                   width: double.infinity,
                   color: ColorManager.primary,
                   text: 'mainfist_btn'.tr(),
-                  onPressed: () {},
+                  onPressed: () {
+                    context.go('/home/recharge_mainfist');
+                  },
                 ),
                 const SizedBox(height: 16),
                 SizedBox(width: 16),
@@ -103,12 +105,7 @@ class HomeMobileBody extends StatelessWidget {
                   label: Text('save'.tr()),
                 ),
                 SizedBox(height: 16),
-                TextButton(
-                  onPressed: () {
-                    context.go('/home/recharge_mainfist');
-                  },
-                  child: Text('cancel'.tr()),
-                ),
+                TextButton(onPressed: () {}, child: Text('cancel'.tr())),
               ],
             ),
           ),

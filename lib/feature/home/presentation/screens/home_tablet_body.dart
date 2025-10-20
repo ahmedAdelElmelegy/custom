@@ -44,7 +44,9 @@ class HomeTabletBody extends StatelessWidget {
                         alignment: WrapAlignment.end,
                         children: [
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              context.go('/home/recharge_mainfist');
+                            },
                             child: Text('cancel'.tr()),
                           ),
                           SizedBox(width: 16),
@@ -64,9 +66,7 @@ class HomeTabletBody extends StatelessWidget {
                           CustomBtn(
                             height: 40,
                             text: 'mainfist_btn'.tr(),
-                            onPressed: () {
-                              context.go('/home/recharge_mainfist');
-                            },
+                            onPressed: () {},
                           ),
                         ],
                       ),
