@@ -1,28 +1,16 @@
-import 'package:customs/core/theme/style.dart';
-import 'package:customs/feature/home/presentation/manager/cubit/home_cubit.dart';
-import 'package:customs/feature/home/presentation/widgets/acid_data_mobile_form.dart';
-import 'package:customs/feature/home/presentation/widgets/goods_data_mobile_form.dart';
-import 'package:customs/feature/home/presentation/widgets/parties_mobile_form.dart';
-import 'package:customs/feature/recharge_mainfist/presentation/widgets/attachments_data_mobile_form.dart';
-import 'package:customs/feature/recharge_mainfist/presentation/widgets/order_data_mobile_form.dart';
-import 'package:customs/feature/recharge_mainfist/presentation/widgets/policy_to_be_modified_mobile_form.dart';
+import 'package:customs/feature/recharge_mainfist/presentation/widgets/recharge_mainfist_cover_image.dart';
+import 'package:customs/feature/recharge_mainfist/presentation/widgets/recharge_mainfist_gradient_color.dart';
+import 'package:customs/feature/recharge_mainfist/presentation/widgets/recharge_mainfist_mobile_body.dart';
 import 'package:flutter/material.dart';
-import 'package:customs/core/helper/constants.dart';
-import 'package:customs/core/theme/colors.dart';
-import 'package:customs/core/widgets/custom_btn.dart';
-import 'package:customs/core/widgets/home_card_section.dart';
 
 import 'package:customs/feature/recharge_mainfist/presentation/widgets/back_arrow_text.dart';
 import 'package:customs/feature/recharge_mainfist/presentation/widgets/mainfist_data_continer.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RechargeMainfistMobileScreen extends StatelessWidget {
   const RechargeMainfistMobileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final rechargeFormKeys = context.read<HomeCubit>().rechargeFormKeys;
     final size = MediaQuery.of(context).size;
     debugPrint(size.width.toString());
     return SingleChildScrollView(
@@ -31,31 +19,9 @@ class RechargeMainfistMobileScreen extends StatelessWidget {
           Stack(
             clipBehavior: Clip.none,
             children: [
-              Container(
-                height: 260,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(AppImages.cover),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
+              RechargeMainFistCoverImage(),
 
-              Container(
-                height: 260,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Colors.black.withValues(alpha: 0.3),
-                      Colors.black.withValues(alpha: 0.7),
-                    ],
-                  ),
-                ),
-              ),
+              RechargeMainfistGradientColor(),
 
               // Header Content
               Positioned(top: 60, left: 16, right: 16, child: BackArrowText()),
@@ -69,81 +35,7 @@ class RechargeMainfistMobileScreen extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 200), // spacing after card
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Column(
-              children: [
-                HomeCardSection(
-                  title: 'policy_to_be_modified'.tr(),
-                  child: Form(
-                    key: rechargeFormKeys[0],
-                    child: PolicyToBeModifiedMobileForm(),
-                  ),
-                ),
-                const SizedBox(height: 24),
-                HomeCardSection(
-                  title: 'parties'.tr(),
-                  child: Form(
-                    key: rechargeFormKeys[1],
-                    child: PartiesMobileForm(),
-                  ),
-                ),
-                const SizedBox(height: 24),
-                HomeCardSection(
-                  title: 'acid_data'.tr(),
-                  child: Form(
-                    key: rechargeFormKeys[2],
-                    child: AcidDataMobileForm(),
-                  ),
-                ),
-                const SizedBox(height: 24),
-                HomeCardSection(
-                  title: 'goods_data'.tr(),
-                  child: Form(
-                    key: rechargeFormKeys[3],
-                    child: GoodsDataMobileForm(),
-                  ),
-                ),
-                const SizedBox(height: 24),
-                HomeCardSection(
-                  title: 'order_data'.tr(),
-                  child: Form(
-                    key: rechargeFormKeys[4],
-                    child: OrderDataMobileForm(),
-                  ),
-                ),
-                const SizedBox(height: 24),
-                HomeCardSection(
-                  title: 'attachments_title'.tr(),
-                  child: Form(
-                    key: rechargeFormKeys[5],
-                    child: AttachmentsDataMobileForm(),
-                  ),
-                ),
-                const SizedBox(height: 24),
-                CustomBtn(
-                  color: ColorManager.primary,
-                  width: double.infinity,
-                  text: 'submit_to_customs'.tr(),
-                  onPressed: () {
-                    for (var element in rechargeFormKeys) {
-                      if (element.currentState!.validate()) {
-                        debugPrint('Validation passed');
-                      }
-                    }
-                  },
-                ),
-                const SizedBox(height: 24),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'cancel'.tr(),
-                    style: AppTextStyle.font14Meduim(context),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          RechargeMainfistMobileBody(),
           const SizedBox(height: 30), // spacing after card
         ],
       ),

@@ -21,66 +21,61 @@ class HomeDesktopBody extends StatelessWidget {
     final homeCubit = context.read<HomeCubit>();
     final size = MediaQuery.of(context).size;
     debugPrint(size.width.toString());
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 120),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            const SizedBox(height: 30),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: ColorManager.primary,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.05),
-                    blurRadius: 8,
-                    offset: const Offset(0, 3),
-                  ),
-                ],
-              ),
-              child: HomeRouteList(),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 120),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          const SizedBox(height: 30),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: ColorManager.primary,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.05),
+                  blurRadius: 8,
+                  offset: const Offset(0, 3),
+                ),
+              ],
             ),
-            const SizedBox(height: 30),
+            child: HomeRouteList(),
+          ),
+          const SizedBox(height: 30),
 
-            HomeActionBtn(),
-            const SizedBox(height: 30),
-            HomeCardSection(
-              title: 'policy_data'.tr(),
-              child: BillOfLadingForm(),
-            ),
-            const SizedBox(height: 30),
+          HomeActionBtn(),
+          const SizedBox(height: 30),
+          HomeCardSection(title: 'policy_data'.tr(), child: BillOfLadingForm()),
+          const SizedBox(height: 30),
 
-            HomeCardSection(
-              title: 'policy_data'.tr(),
-              child: Form(key: homeCubit.formKeys[0], child: BeneficiaryForm()),
-            ),
-            const SizedBox(height: 30),
-            HomeCardSection(
-              title: 'parties'.tr(),
-              child: Form(key: homeCubit.formKeys[1], child: PartiesForm()),
-            ),
-            const SizedBox(height: 30),
-            HomeCardSection(
-              title: 'acid_data'.tr(),
-              child: Form(key: homeCubit.formKeys[2], child: AcidDataForm()),
-            ),
-            const SizedBox(height: 30),
+          HomeCardSection(
+            title: 'policy_data'.tr(),
+            child: Form(key: homeCubit.formKeys[0], child: BeneficiaryForm()),
+          ),
+          const SizedBox(height: 30),
+          HomeCardSection(
+            title: 'parties'.tr(),
+            child: Form(key: homeCubit.formKeys[1], child: PartiesForm()),
+          ),
+          const SizedBox(height: 30),
+          HomeCardSection(
+            title: 'acid_data'.tr(),
+            child: Form(key: homeCubit.formKeys[2], child: AcidDataForm()),
+          ),
+          const SizedBox(height: 30),
 
-            HomeCardSection(
-              title: 'goods_data'.tr(),
-              child: Form(key: homeCubit.formKeys[3], child: GoodsDataForm()),
-            ),
-            const SizedBox(height: 30),
-            HomeCardSection(
-              title: 'basic_data'.tr(),
-              child: Form(key: homeCubit.formKeys[4], child: BasicDataForm()),
-            ),
-            const SizedBox(height: 30),
-          ],
-        ),
+          HomeCardSection(
+            title: 'goods_data'.tr(),
+            child: Form(key: homeCubit.formKeys[3], child: GoodsDataForm()),
+          ),
+          const SizedBox(height: 30),
+          HomeCardSection(
+            title: 'basic_data'.tr(),
+            child: Form(key: homeCubit.formKeys[4], child: BasicDataForm()),
+          ),
+          const SizedBox(height: 30),
+        ],
       ),
     );
   }

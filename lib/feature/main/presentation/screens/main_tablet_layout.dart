@@ -52,7 +52,12 @@ class _MainTabletLayoutState extends State<MainTabletLayout> {
             // screens
             AnimatedSwitcher(
               duration: const Duration(milliseconds: 300),
-              child: widget.child,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  minHeight: MediaQuery.of(context).size.height,
+                ),
+                child: widget.child,
+              ),
             ),
             const SizedBox(height: 30),
             Footer(),

@@ -34,7 +34,6 @@ class _MainDesktopLayoutState extends State<MainDesktopLayout> {
       backgroundColor: ColorManager.white,
       body: SingleChildScrollView(
         child: Column(
-          // mainAxisSize: MainAxisSize.max,
           children: [
             Header(
               onIndexChange: (index) {
@@ -58,7 +57,12 @@ class _MainDesktopLayoutState extends State<MainDesktopLayout> {
 
             AnimatedSwitcher(
               duration: const Duration(milliseconds: 300),
-              child: widget.child,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  minHeight: MediaQuery.of(context).size.height,
+                ),
+                child: widget.child,
+              ),
             ),
             const Footer(),
           ],
