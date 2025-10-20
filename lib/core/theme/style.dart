@@ -45,6 +45,18 @@ abstract class AppTextStyle {
     fontSize: getResponsiveFontSize(context, fontSize: 14),
     fontFamily: meduim,
   );
+  // 24
+  static TextStyle font24Bold(context) => TextStyle(
+    fontSize: getResponsiveFontSize(context, fontSize: 24),
+    fontWeight: FontWeight.bold,
+    fontFamily: bold,
+  );
+  // f18
+  static TextStyle font18Bold(context) => TextStyle(
+    fontSize: getResponsiveFontSize(context, fontSize: 18),
+    fontWeight: FontWeight.bold,
+    fontFamily: bold,
+  );
 }
 
 double getResponsiveFontSize(context, {required double fontSize}) {

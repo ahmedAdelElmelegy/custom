@@ -4,6 +4,7 @@ import 'package:customs/feature/home/presentation/manager/cubit/home_cubit.dart'
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeActionBtn extends StatelessWidget {
   const HomeActionBtn({super.key});
@@ -36,7 +37,9 @@ class HomeActionBtn extends StatelessWidget {
               CustomBtn(
                 height: 40,
                 text: 'mainfist_btn'.tr(),
-                onPressed: () {},
+                onPressed: () {
+                  context.go('/home/recharge_mainfist');
+                },
               ),
             ],
           ),

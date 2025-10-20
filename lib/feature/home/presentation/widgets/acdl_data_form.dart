@@ -37,7 +37,12 @@ class _AcidDataFormState extends State<AcidDataForm> {
                   type: InputType.text,
                 ),
               ),
-              const SizedBox(width: 30),
+            ],
+          ),
+          const SizedBox(height: 30),
+
+          Row(
+            children: [
               Expanded(
                 child: CustomInputField(
                   validator: (value) => Validator.validateEmpty(),

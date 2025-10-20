@@ -34,6 +34,7 @@
     "port_of_arrival_placeholder": "اختر ميناء الوصول",
     "port_of_destination": "ميناء الوجهة",
     "port_of_transit": "ميناء الترانزيت",
+    "country_of_arrival": "دولة ميناء الوصول",
     "cancel":"الغاء",
     "save":"حفظ",
     "shipping_direction": "جهة الوجهة",
@@ -59,6 +60,9 @@
     "dangerous_party_address":"عنوان طرف الاخطار",
     "agent_trade":" تعامل وكيل الشحن",
     "agent_trade_placeholder":"اسم وكيل الشحن",
+    "order_data":"بيانات الطلب",
+    "reason":"السبب",
+    "reason_of_recharge":"سبب إعادة الشحن",
 
     "acid_data":"بيانات ACID",
     "acid_data_number":"الرقم التعريفي ACID",
@@ -101,8 +105,26 @@
     "update_mainfist":"استكمال تعديل  منافست",
    
     "back":"رجوع",
-    "recharge_request":"طلب اعادة شحن خارجية"
+    "recharge_request":"طلب اعادة شحن خارجية",
+    "mainfist_data":"بيانات المنافيست",
+    "transit_number":"رقم التراكي",
+    "arrival_date":"تاريخ الوصول",
+   "ship":"سفينة",
+   "policy_to_be_modified":"بيانات البوليصة المراد تعديلها"
 
-   
+
+
+
+
+
+,
+
+   "attachments_title": "مستندات الطلب المرفقة",
+  "bill_of_lading_label": "مستند بوليصة الشحن",
+  "packing_list_label": "مستند قائمة الشحن",
+  "delivery_permission_label": "مستندات إذن التسليم",
+  "other_label": "أخرى",
+  "submit_to_customs": "ُقدم للجمرك"
+
 
 }

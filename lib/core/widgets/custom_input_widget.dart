@@ -13,6 +13,9 @@ class CustomInputField extends StatefulWidget {
 
   // 🧩 Text Field
   final TextEditingController? controller;
+  final Widget? suffixIcon;
+  final bool readOnly;
+  final VoidCallback? onTap;
 
   // 🧩 Dropdown
   final List<String>? items;
@@ -31,6 +34,7 @@ class CustomInputField extends StatefulWidget {
     required this.label,
     this.validator,
     this.controller,
+    this.suffixIcon,
     this.items,
     this.selectedValue,
     this.onChanged,
@@ -38,6 +42,8 @@ class CustomInputField extends StatefulWidget {
     this.onLoadMore,
     this.boolValue,
     this.onChangedBool,
+    this.readOnly = false,
+    this.onTap,
   });
 
   @override
@@ -194,11 +200,14 @@ class _CustomInputFieldState extends State<CustomInputField> {
         Text(widget.label, style: AppTextStyle.font14Meduim(context)),
         const SizedBox(height: 8),
         TextFormField(
+          readOnly: widget.readOnly,
+          onTap: widget.onTap,
           controller: widget.controller,
           validator: widget.validator,
           decoration: InputDecoration(
             hintText: widget.label,
             hintStyle: AppTextStyle.font14Meduim(context),
+            suffixIcon: widget.suffixIcon,
             border: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(8)),
             ),

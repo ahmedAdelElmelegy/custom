@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -12,10 +11,7 @@ class ProfileScreen extends StatelessWidget {
           backgroundColor: Colors.blue,
           foregroundColor: Colors.white,
         ),
-        onPressed: () {
-          context.pop();
-          // context.go('/services/profile/setting');
-        },
+        onPressed: () {},
         child: Text('Profile'),
       ),
     );

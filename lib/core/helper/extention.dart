@@ -8,7 +8,10 @@ import 'package:customs/feature/home/presentation/screens/home_tablet_body.dart'
 import 'package:customs/feature/main/presentation/screens/main_desktop_layout.dart';
 import 'package:customs/feature/main/presentation/screens/main_mobile_layout.dart';
 import 'package:customs/feature/main/presentation/screens/main_tablet_layout.dart';
-import 'package:customs/feature/services/presentation/screens/services.dart';
+import 'package:customs/feature/recharge_mainfist/presentation/screens/recharge_mainfist_desktop_screen.dart';
+import 'package:customs/feature/recharge_mainfist/presentation/screens/recharge_mainfist_mobile_screen.dart';
+import 'package:customs/feature/recharge_mainfist/presentation/screens/recharge_mainfist_tablet_screen.dart';
+import 'package:customs/feature/services/presentation/screens/services_screen.dart';
 import 'package:go_router/go_router.dart';
 
 // final isLogin = false;
@@ -31,6 +34,16 @@ final GoRouter router = GoRouter(
             desktopLayout: (context) => HomeDesktopBody(),
             tabletLayout: (context) => HomeTabletBody(),
           ),
+          routes: [
+            GoRoute(
+              path: 'recharge_mainfist',
+              builder: (context, state) => AdaptiveLayout(
+                mobilelayout: (context) => RechargeMainfistMobileScreen(),
+                desktopLayout: (context) => RechargeMainfistDesktopScreen(),
+                tabletLayout: (context) => RechargeMainfistTabletScreen(),
+              ),
+            ),
+          ],
         ),
         GoRoute(
           path: '/services',
