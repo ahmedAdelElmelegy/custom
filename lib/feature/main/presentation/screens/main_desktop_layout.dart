@@ -54,7 +54,6 @@ class _MainDesktopLayoutState extends State<MainDesktopLayout> {
                 saveRouteIndex(index);
               },
             ),
-
             AnimatedSwitcher(
               duration: const Duration(milliseconds: 300),
               child: ConstrainedBox(

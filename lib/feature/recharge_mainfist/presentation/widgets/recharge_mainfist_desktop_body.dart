@@ -1,7 +1,7 @@
 import 'package:customs/core/theme/colors.dart';
 import 'package:customs/core/widgets/custom_btn.dart';
 import 'package:customs/core/widgets/home_card_section.dart';
-import 'package:customs/feature/home/presentation/manager/cubit/home_cubit.dart';
+import 'package:customs/feature/home/presentation/manager/home/home_cubit.dart';
 import 'package:customs/feature/home/presentation/widgets/acdl_data_form.dart';
 import 'package:customs/feature/home/presentation/widgets/goods_data_form.dart';
 import 'package:customs/feature/home/presentation/widgets/parties_form.dart';

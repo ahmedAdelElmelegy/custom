@@ -2,7 +2,7 @@ import 'package:customs/core/theme/colors.dart';
 import 'package:customs/core/theme/style.dart';
 import 'package:customs/core/widgets/custom_btn.dart';
 import 'package:customs/core/widgets/home_card_section.dart';
-import 'package:customs/feature/home/presentation/manager/cubit/home_cubit.dart';
+import 'package:customs/feature/home/presentation/manager/home/home_cubit.dart';
 import 'package:customs/feature/home/presentation/widgets/acid_data_mobile_form.dart';
 import 'package:customs/feature/home/presentation/widgets/basic_data_mobile_form.dart';
 import 'package:customs/feature/home/presentation/widgets/beneficiary_mobile_form.dart';
